@@ -1,5 +1,5 @@
-class LoadingBar{
-	constructor(options){
+class LoadingBar {
+	constructor(options) {
 		this.domElement = document.createElement("div");
 		this.domElement.style.position = 'fixed';
 		this.domElement.style.top = '0';
@@ -20,31 +20,31 @@ class LoadingBar{
 		barBase.style.height = '15px';
 		this.domElement.appendChild(barBase);
 		const bar = document.createElement("div");
-		bar.style.background = '#22a';
+		bar.style.background = '#00f';  // Changed to blue
 		bar.style.width = '50%';
 		bar.style.borderRadius = '10px';
 		bar.style.height = '100%';
 		bar.style.width = '0';
 		barBase.appendChild(bar);
 		this.progressBar = bar;
-		
+
 		document.body.appendChild(this.domElement);
-		
-		function onprogress(delta){
-			const progress = delta*100;
+
+		function onprogress(delta) {
+			const progress = delta * 100;
 			loader.progressBar.style.width = `${progress}%`;
 		}
 	}
-	
-	set progress(delta){
-		const percent = delta*100;
+
+	set progress(delta) {
+		const percent = delta * 100;
 		this.progressBar.style.width = `${percent}%`;
 	}
-	
-	set visible(value){
-		if (value){
+
+	set visible(value) {
+		if (value) {
 			this.domElement.style.display = 'flex';
-		}else{
+		} else {
 			this.domElement.style.display = 'none';
 		}
 	}
